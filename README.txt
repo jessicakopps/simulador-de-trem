@@ -1,107 +1,83 @@
-🚆 Simulador de Sistema Ferroviário em Java
-📌 Visão Geral
-Este projeto simula o funcionamento de trens em uma linha ferroviária de via única com desvios, incluindo:
+# 🚄 Simulador Ferroviário em Java  
+*Um sistema completo de simulação de trens com controle de colisões, passageiros e geração de relatórios*  
 
-Movimentação de trens em sentidos opostos
+---
 
-Operações em estações
+## 🌟 Features  
+✅ **Movimento realista** de trens (60km/h)  
+✅ **Sistema de desvios** automático para evitar colisões  
+✅ **Embarque/desembarque** com tempo proporcional ao número de passageiros  
+✅ **Relatórios completos** em TXT (logs e estatísticas)  
+✅ Interface no console com **mapa visual** das estações  
 
-Prevenção de colisões
+---
 
-Geração de relatórios
+## 🛠️ Tecnologias 
+
+📦 Java 17+
+├── 📂 Model (Trilhos, Trens, Estações)
+├── 📂 View (Console interativo)
+└── 📂 Controller (Lógica principal)
 
 🚀 Como Executar
-Pré-requisitos:
-
-Java JDK 17+ instalado
-
-Terminal/Command Prompt
-
-Execução:
-
-bash
+Compilar:
+```
 javac src/main/java/Main.java
+```
+Executar:
+```
 java -cp src/main/java Main
-🕹️ Controles da Simulação
-Enter: Avança 1 minuto na simulação
-
-Q + Enter: Encerra a simulação
-
-⚙️ Mecânicas da Simulação
-🚂 Sistema de Trens
-Característica	Detalhe
-Sentidos	Horário (A→B) e Anti-horário (B→A)
-Velocidade	60 km/h (1 km/min)
-Capacidade	Máximo de 50 passageiros
-Frequência	Novo trem a cada 30 minutos (8h-17h30)
-🏗️ Infraestrutura
-Elemento	Descrição	Distância
-Estações	Pontos de parada para operações	A cada 20 km
-Desvios	Áreas para evitar colisões	1 km antes/depois estações
-👥 Sistema de Passageiros
-Embarque/Desembarque:
-
-Até 10 passageiros por operação
-
-30 segundos por passageiro
-
-Total sempre par (ajuste automático)
-
-Tempo de Parada:
-
-Mínimo: 1 minuto (se nenhum passageiro)
-
-Máximo: 10 minutos (20 passageiros)
-
-📊 Saída do Sistema
-Console:
-
+```
+Controles:
+```
 plaintext
-ID | Pos (km) | Estação | Status   | Passageiros | Entraram | Sairam | Tempo/Acao
---------------------------------------------------------------------------------
- 1 |      15  |    1    | VIA     |         23  |     -    |   -    | -
-Arquivos:
+[ENTER]  - Avança 1 minuto
+Q + [ENTER] - Sair
 
-log_simulacao.txt: Registro detalhado por minuto
-
-relatorio_final.txt: Estatísticas consolidados
-
-📈 Estatísticas Geradas
-Totais por estação:
-
-Passageiros embarcados
-
-Passageiros desembarcados
-
-Métricas gerais:
-
-Colisões evitadas
-
-Tempo total em desvios
-
-Passageiros transportados
-
-🛠️ Estrutura do Código
-bash
+##🏗️ Estrutura do Projeto
+```
 src/
 ├── main/
 │   ├── java/
-│   │   ├── controller/  # Lógica principal
-│   │   ├── model/       # Entidades do sistema
-│   │   ├── view/        # Exibição no console
-│   │   ├── utils/       # Ferramentas auxiliares
-│   │   └── Main.java    # Ponto de entrada
-⏱️ Ciclo de Simulação
-Cria trens conforme horário
+│   │   ├── controller/
+│   │   ├── model/
+│   │   ├── view/
+│   │   ├── utils/
+│   │   └── Main.java
+```
 
-Atualiza posição dos trens
+📊 Mecânicas Principais
+🚂 Comportamento dos Trens
+Parâmetro	Valor
+Velocidade	1 km/min (60 km/h)
+Capacidade	10-50 passageiros
+Frequência	Novo trem a cada 30 min
+👥 Sistema de Passageiros
+```
+// Código de exemplo (Trem.java)
+if (passageiros < 10) {
+    int adicional = 10 - passageiros;
+    ultimosQueEntraram += adicional;
+}
+```
+📝 Saída do Sistema
+Console:
+```
+plaintext
+ID | Pos (km) | Estação | Status   | Passageiros
+1  |   15     |    2    | VIA     |     23
+```
+Arquivos gerados:
 
-Verifica colisões
+log_simulacao.txt ➔ Registro minuto a minuto
 
-Processa estações
+relatorio_final.txt ➔ Estatísticas completas
 
-Gera saída visual
+📌 Observação
+ℹ️ Diferença entre embarcados/desembarcados ocorre porque:
 
-Repete até término (17h30 + todos trens chegarem)
+Passageiros iniciais só aparecem nos desembarques
 
-Este simulador oferece uma representação realista de sistemas ferroviários com vias únicas, demonstrando desafios operacionais e soluções de controle.
+Trens podem terminar com passageiros não contabilizados
+
+🎉 Simule, analise e divirta-se com este sistema ferroviário completo!
