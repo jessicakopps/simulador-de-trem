@@ -21,18 +21,24 @@
 
 🚀 Como Executar
 Compilar:
+
 ```
 javac src/main/java/Main.java
 ```
+
 Executar:
+
 ```
 java -cp src/main/java Main
 ```
+
 Controles:
+
 ```
 plaintext
 [ENTER]  - Avança 1 minuto
 Q + [ENTER] - Sair
+```
 
 ##🏗️ Estrutura do Projeto
 ```
@@ -52,6 +58,8 @@ Parâmetro	Valor
 Velocidade	1 km/min (60 km/h)
 Capacidade	10-50 passageiros
 Frequência	Novo trem a cada 30 min
+
+
 👥 Sistema de Passageiros
 ```
 // Código de exemplo (Trem.java)
@@ -60,13 +68,16 @@ if (passageiros < 10) {
     ultimosQueEntraram += adicional;
 }
 ```
+
 📝 Saída do Sistema
 Console:
+
 ```
 plaintext
 ID | Pos (km) | Estação | Status   | Passageiros
 1  |   15     |    2    | VIA     |     23
 ```
+
 Arquivos gerados:
 
 log_simulacao.txt ➔ Registro minuto a minuto
